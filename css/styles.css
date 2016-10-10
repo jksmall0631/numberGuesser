@@ -1,0 +1,57 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+header {
+  background: #404041;
+  height: 50px;
+  text-align: center;
+  font-size: 40px;
+}
+h1{
+  display: inline-block;
+}
+#title1 {
+  color: #ED458B;
+  font-weight: 700;
+}
+#title2 {
+  color: #e6e7e8;
+  font-weight: 300;
+}
+section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+input {
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 25px;
+}
+button {
+  margin: 30px 20px;
+  background-color:#D0D2D3;
+  border: none;
+  color: #FFFFFF;
+  padding: 5px 80px;
+  font-size: 30px;
+  border-radius: 20%;
+}
+button:hover {
+  background-color:#EB008B;
+}
+
+#lastGuess p {
+  margin: 20px 0;
+  color: #404041;
+}
+
+#lastGuess h2 {
+  color: #EB008B;
+  font-size: 100px;
+  font-weight: 300;
+}
+
+#reset {
+  padding: 5px 200px;
+}
