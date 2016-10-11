@@ -59,3 +59,7 @@ function printMessageHere () {
 }
 //add event listener
 guess.addEventListener('click', printMessageHere);
+
+function reset (){
+  
+}
