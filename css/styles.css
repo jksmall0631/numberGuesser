@@ -27,6 +27,7 @@ input {
   margin: auto;
   margin-top: 30px;
   font-size: 25px;
+  outline: none;
 }
 button {
   margin: 30px 20px;
@@ -35,7 +36,8 @@ button {
   color: #FFFFFF;
   padding: 5px 80px;
   font-size: 30px;
-  border-radius: 15px;
+  border-radius: 20px;
+  outline: none;
 }
 button:hover {
   background-color:#EB008B;
