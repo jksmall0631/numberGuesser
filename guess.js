@@ -15,7 +15,7 @@ function collectUserNumber() {
   var lastGuess = userNumber.value;
   printNumber.innerText = lastGuess;
 }
-
+//clears text field
 function clearUserNumber() {
   document.getElementById("number").value = "";
 }
@@ -27,6 +27,7 @@ function clearUserNumber() {
 //on 'guess' button click, run collectUserNumber
 guess.addEventListener('click', collectUserNumber);
 
+//on 'clear' button click, run clearUserNumber
 clear.addEventListener('click', clearUserNumber);
 
 // generate random number to variable compNumber
@@ -44,7 +45,7 @@ clear.addEventListener('click', clearUserNumber);
      return("That is too low");
    }
    else if (numberOne() === randNumber){
-     return("Winner winner chicken dinner");
+     return("Winner winner chicken dinner!");
    }
    else{
      return("Make sure your input is a number");
@@ -60,6 +61,13 @@ function printMessageHere () {
 //add event listener
 guess.addEventListener('click', printMessageHere);
 
-function reset (){
-  
+//function that resets input, number, and message fields
+function resetIt (){
+  document.getElementById("number").value = "";
+  printNumber.innerText = "";
+  printMessage.innerText = "";
+  randNumber = compNumber();
 }
+
+//runs resetIt function on reset button click
+reset.addEventListener('click', resetIt);
