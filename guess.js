@@ -1,20 +1,34 @@
 //identify the input field
 var userNumber = document.getElementById("number");
+
 //identify the 'last guess' output area
 var printNumber = document.querySelector('h2');
+
 //identify the 'guess' button
 var guess = document.getElementById('guess');
+
+//identify the 'clear' button
+var clear = document.getElementById('clear');
+
 //function to collect the value from input field and store it as variable 'userNumber'
-function collectUserNumber () {
+function collectUserNumber() {
   var lastGuess = userNumber.value;
   printNumber.innerText = lastGuess;
 }
+
+function clearUserNumber() {
+  document.getElementById("number").value = "";
+}
+
 //convert value of userNumber to numeric from string, store as new variable numberOne
  function numberOne() {
   return parseInt(userNumber.value);
 }
 //on 'guess' button click, run collectUserNumber
 guess.addEventListener('click', collectUserNumber);
+
+clear.addEventListener('click', clearUserNumber);
+
 // generate random number to variable compNumber
  function compNumber(){
    var rand = Math.floor((Math.random()*100)+1);
@@ -45,5 +59,3 @@ function printMessageHere () {
 }
 //add event listener
 guess.addEventListener('click', printMessageHere);
-
-console.log(userGuess);
