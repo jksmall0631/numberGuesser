@@ -1,32 +1,37 @@
-var button = document.querySelector('#guess');
+var userNumber = document.getElementById("number");
 
+var printNumber = document.querySelector('h2');
 
-button.addEventListener('click', function(){
-  var input = document.getElementById('#number');
-  console.log('input.innerText')
-  *//var display = document.getElementById('#lastGuess');
-  *//var userNumber = parseInt(input);
-  *//display.innerText = userNumber;
-  *//return finalInput;
-})
+var guess = document.getElementById('guess');
+
+guess.addEventListener('click', function(){
+  var lastGuess = userNumber.value;
+  printNumber.innerText = lastGuess;
+  compNumber();
+  compare();
+});
+
+var numberOne = function(){
+  return parseInt(userNumber.value);
+};
 
 var compNumber = function(){
    var rand = Math.floor((Math.random()*100)+1);
    return rand;
- }
-
+ };
+console.log(numberOne());
+console.log(compNumber());
  var compare = function(){
-   if (userNumber === compNumber){
-     console.log("Winner winner chicken dinner");
-   }
-   else if(userNumber > compNumber && userNumber < 101){
+    if (numberOne > compNumber){
      console.log("That is too high");
    }
-   else if (userNumber < compNumber && userNumber > 0) {
+   else if (numberOne < compNumber) {
      console.log("That is too low");
    }
-   else{
-     console.log("Make sure your number is between 0 & 100")
+   else if (numberOne === compNumber){
+     console.log("Winner winner chicken dinner");
    }
-
- }
+   else{
+     console.log("Make sure your number is between 0 & 100");
+   }
+ };
