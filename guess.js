@@ -19,7 +19,12 @@ var max = document.getElementById('max').value;
 //function to collect the value from input field and store it as variable 'userNumber'
 function collectUserNumber() {
   var lastGuess = userNumber.value;
+  if (lastGuess > 100 || lastGuess < 1) {
+    alert("pick a number between 1 and 100");
+  }
+  else {
   printNumber.innerText = lastGuess;
+}
 }
 //clears text field
 function clearUserNumber() {
@@ -57,21 +62,26 @@ clear.addEventListener('click', clearUserNumber);
      return("Make sure your input is a number");
    }
  };
-//identify line to print message to
+//identify line to print messages to
+var printIntro  = document.getElementById('intro');
 var printMessage = document.getElementById('higherLower');
 //declare function to print message
 function printMessageHere () {
   var message1 = compare();
   printMessage.innerText = message1;
+  printIntro.innerText = "Your last guess was";
 }
 //add event listener
 guess.addEventListener('click', printMessageHere);
+
 
 //function that resets input, number, and message fields
 function resetIt (){
   document.getElementById("number").value = "";
   printNumber.innerText = "";
   printMessage.innerText = "";
+  printIntro.innerText = "";
+
   randNumber = compNumber();
 }
 
