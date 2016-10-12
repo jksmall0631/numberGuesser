@@ -1,22 +1,19 @@
 //identify the input field
 var userNumber = document.getElementById("number");
 
-//identify the 'last guess' output area
-var printNumber = document.querySelector('h2');
-
 //identify the 'guess' button
 var guess = document.getElementById('guess');
 
 //identify the 'clear' button
 var clear = document.getElementById('clear');
 
-//store value inside min text field in variable
-var min = document.getElementById('min').value;
-
-//store value inside max text field in variable
-var max = document.getElementById('max').value;
+//identify lines to print messages to
+var printIntro  = document.getElementById('intro');
+var printMessage = document.getElementById('higherLower');
+var printNumber = document.querySelector('h2');
 
 //function to collect the value from input field and store it as variable 'userNumber'
+//also creates an alert window if number is outside of variable range
 function collectUserNumber() {
   var lastGuess = userNumber.value;
   if (lastGuess > 100 || lastGuess < 1) {
@@ -24,30 +21,44 @@ function collectUserNumber() {
   }
   else {
   printNumber.innerText = lastGuess;
+  }
 }
-}
-//clears text field
-function clearUserNumber() {
-  document.getElementById("number").value = "";
-}
+
+//event listeners that activate disabled buttons at appropriate time
+number.addEventListener('input', function(){
+  clear.disabled = false;
+  guess.disabled = false;
+});
+
+guess.addEventListener('click', function(){
+  reset.disabled = false;
+});
+
+//on 'guess' button click, run collectUserNumber
+guess.addEventListener('click', collectUserNumber);
 
 //convert value of userNumber to numeric from string, store as new variable numberOne
  function numberOne() {
   return parseInt(userNumber.value);
 }
-//on 'guess' button click, run collectUserNumber
-guess.addEventListener('click', collectUserNumber);
+
+//function to clear text field
+function clearUserNumber() {
+  document.getElementById("number").value = "";
+}
 
 //on 'clear' button click, run clearUserNumber
 clear.addEventListener('click', clearUserNumber);
 
-// generate random number to variable compNumber
+// function to generate random number to variable compNumber
  function compNumber(){
    var rand = Math.floor((Math.random()*100)+1);
    return rand;
  }
+ // variable that runs random number function
  var randNumber = compNumber();
-//compare userGuess to randNumber;
+
+// compare userGuess to randNumber;
  var compare = function(){
     if (numberOne() > randNumber){
      return("That is too high");
@@ -62,18 +73,16 @@ clear.addEventListener('click', clearUserNumber);
      return("Make sure your input is a number");
    }
  };
-//identify line to print messages to
-var printIntro  = document.getElementById('intro');
-var printMessage = document.getElementById('higherLower');
+
 //declare function to print message
 function printMessageHere () {
   var message1 = compare();
   printMessage.innerText = message1;
   printIntro.innerText = "Your last guess was";
 }
-//add event listener
-guess.addEventListener('click', printMessageHere);
 
+//prints appropriate messages on button click
+guess.addEventListener('click', printMessageHere);
 
 //function that resets input, number, and message fields
 function resetIt (){
