@@ -17,7 +17,7 @@
     </header>
 
     <section id="guessField">
-      <input id="number" type="number" min="1" max="100" placeholder="Enter your Guess"></input>
+      <input id="number" type="number,text" placeholder="Enter your Guess"></input>
       <button id="guess">Guess</button>
       <button id="clear" disabled>Clear</button>
     </section>
@@ -30,11 +30,14 @@
     </section>
 
     <section id="changeMM">
-      <input id="min" type="number" placeholder="New Min">
+      <input id="userMin" type="number" placeholder="New Min" value="1">
       </input>
-      <input id="max" type="number" placeholder="New Max">
+      <input id="userMax" type="number" placeholder="New Max" value="100">
       </input>
+      <button id= "newRange">Change your range</button>
     </section>
+
+
 
 
     <script type="text/javascript" src="guess.js"></script>

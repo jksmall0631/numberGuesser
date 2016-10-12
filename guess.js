@@ -10,17 +10,24 @@ var guess = document.getElementById('guess');
 //identify the 'clear' button
 var clear = document.getElementById('clear');
 
-//store value inside min text field in variable
-var min = document.getElementById('min').value;
+function getMin(){
+return Number(document.getElementById("userMin").value);
+}
 
-//store value inside max text field in variable
-var max = document.getElementById('max').value;
+function getMax(){
+return Number(document.getElementById("userMax").value);
+}
+
+function minMaxReset(){
+  document.getElementById('userMin').value = 1;
+  document.getElementById('userMax').value = 100;
+}
 
 //function to collect the value from input field and store it as variable 'userNumber'
 function collectUserNumber() {
   var lastGuess = userNumber.value;
-  if (lastGuess > 100 || lastGuess < 1) {
-    alert("pick a number between 1 and 100");
+  if (lastGuess > getMax() || lastGuess < getMin()) {
+    alert("pick a number within the range");
   }
   else {
   printNumber.innerText = lastGuess;
@@ -32,20 +39,31 @@ function clearUserNumber() {
 }
 
 //convert value of userNumber to numeric from string, store as new variable numberOne
- function numberOne() {
+function numberOne() {
   return parseInt(userNumber.value);
 }
+
+function minParse() {
+  return parseInt(userMin.value);
+}
+
+function maxParse() {
+  return parseInt(userMax.value);
+}
+
 //on 'guess' button click, run collectUserNumber
 guess.addEventListener('click', collectUserNumber);
 
 //on 'clear' button click, run clearUserNumber
 clear.addEventListener('click', clearUserNumber);
 
-// generate random number to variable compNumber
- function compNumber(){
-   var rand = Math.floor((Math.random()*100)+1);
-   return rand;
+// generate random number in specified range to variable compNumber
+ function compNumber() {
+   min = getMin();
+   max = getMax();
+   return Math.floor(Math.random() * (max - min)) + min;
  }
+
  var randNumber = compNumber();
 //compare userGuess to randNumber;
  var compare = function(){
@@ -81,7 +99,7 @@ function resetIt (){
   printNumber.innerText = "";
   printMessage.innerText = "";
   printIntro.innerText = "";
-
+  minMaxReset();
   randNumber = compNumber();
 }
 
@@ -94,4 +112,9 @@ number.addEventListener('input', function(){
 
 guess.addEventListener('click', function(){
   reset.disabled = false;
+});
+
+// newRange.addEventListener('click', );
+newRange.addEventListener('click', function(){
+  randNumber = compNumber();
 });
