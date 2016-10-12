@@ -29,7 +29,6 @@ number.addEventListener('input', function(){
   clear.disabled = false;
   guess.disabled = false;
 });
-
 guess.addEventListener('click', function(){
   reset.disabled = false;
 });
@@ -90,17 +89,11 @@ function resetIt (){
   printNumber.innerText = "";
   printMessage.innerText = "";
   printIntro.innerText = "";
-
+  clear.disabled = true;
+  guess.disabled = true;
+  reset.disabled = true;
   randNumber = compNumber();
 }
 
 //runs resetIt function on reset button click
 reset.addEventListener('click', resetIt);
-
-number.addEventListener('input', function(){
-  clear.disabled = false;
-});
-
-guess.addEventListener('click', function(){
-  reset.disabled = false;
-});
