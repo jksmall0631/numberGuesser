@@ -10,6 +10,12 @@ var guess = document.getElementById('guess');
 //identify the 'clear' button
 var clear = document.getElementById('clear');
 
+//store value inside min text field in variable
+var min = document.getElementById('min').value;
+
+//store value inside max text field in variable
+var max = document.getElementById('max').value;
+
 //function to collect the value from input field and store it as variable 'userNumber'
 function collectUserNumber() {
   var lastGuess = userNumber.value;
@@ -81,3 +87,11 @@ function resetIt (){
 
 //runs resetIt function on reset button click
 reset.addEventListener('click', resetIt);
+
+number.addEventListener('input', function(){
+  clear.disabled = false;
+});
+
+guess.addEventListener('click', function(){
+  reset.disabled = false;
+});
