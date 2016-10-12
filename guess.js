@@ -24,6 +24,16 @@ function collectUserNumber() {
   }
 }
 
+//event listeners that activate disabled buttons at appropriate time
+number.addEventListener('input', function(){
+  clear.disabled = false;
+  guess.disabled = false;
+});
+
+guess.addEventListener('click', function(){
+  reset.disabled = false;
+});
+
 //on 'guess' button click, run collectUserNumber
 guess.addEventListener('click', collectUserNumber);
 
