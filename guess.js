@@ -131,8 +131,8 @@ function resetIt (){
   clear.disabled = true;
   guess.disabled = true;
   reset.disabled = true;
-  document.getElementById('userMin').value = 1;
-  document.getElementById('userMax').value = 100;
+  document.getElementById('userMin').value = "";
+  document.getElementById('userMax').value = "";
   randNumber = compNumber();
 }
 
