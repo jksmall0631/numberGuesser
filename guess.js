@@ -85,7 +85,7 @@ newRange.addEventListener('click', function(){
    return min;
  }
  function a(){
-   newMax = Number(document.getElementById("userMax").value)+10;
+   newMax = getMax()+10;
    max = newMax;
    return max;
  }
