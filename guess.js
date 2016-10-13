@@ -30,10 +30,8 @@ function collectUserNumber() {
   printNumber.innerText = lastGuess;
   }
 }
-
 //on 'guess' button click, run collectUserNumber
 guess.addEventListener('click', collectUserNumber);
-
 //convert value of userNumber to numeric from string, store as new variable numberOne
 function numberOne() {
   return parseInt(userNumber.value);}
@@ -42,7 +40,6 @@ function numberOne() {
 function clearUserNumber() {
   document.getElementById("number").value = "";
 }
-
 //on 'clear' button click, run clearUserNumber
 clear.addEventListener('click', clearUserNumber);
 
@@ -50,7 +47,6 @@ clear.addEventListener('click', clearUserNumber);
 function getMin(){
   return Number(document.getElementById("userMin").value);
 }
-
 // retrieves value of userMax input field as numeric value
 function getMax(){
   return Number(document.getElementById("userMax").value);
@@ -58,7 +54,6 @@ function getMax(){
 
 //whenever newRange button is clicked a new random number is generated with
 //the user declared variables.
-
 newRange.addEventListener('click', function(){
   randNumber = compNumber();
 });
@@ -69,26 +64,23 @@ newRange.addEventListener('click', function(){
    max = getMax();
    return Math.floor(Math.random() * (max - min)) + min;
  }
-
  // variable that runs random number function
  var randNumber = compNumber();
 
+//functions that work together to expand the range by 20 integers every time
+//the user guesses the correct number
+ function m(){
+   newMin = Number(document.getElementById("userMin").value)-10;
+   min = newMin;
+   return min;
+ }
+ function a(){
+   newMax = Number(document.getElementById("userMax").value)+10;
+   max = newMax;
+   return max;
+ }
+
 // compare userGuess to randNumber;
-//new stuff !!!!!!!!!!!!!
-
-function m(){
-  newMin = Number(document.getElementById("userMin").value)-10;
-  min = newMin;
-  return min;
-}
-function a(){
-  newMax = Number(document.getElementById("userMax").value)+10;
-  max = newMax;
-  return max;
-}
-
-var randNumber = compNumber();
-//compare userGuess to randNumber;
  var compare = function(){
     if (numberOne() > randNumber){
      return("That is too high");
@@ -106,8 +98,6 @@ var randNumber = compNumber();
      return("Make sure your input is a number");
    }
  };
-
- //end new stuff !!!!!!!!!!!!
 
 //identify line to print messages to
 var printIntro  = document.getElementById('intro');
