@@ -1,4 +1,4 @@
-//identify the input field
+//identify the number input field
 var userNumber = document.getElementById("number");
 
 //identify the 'guess' button
@@ -16,24 +16,8 @@ var printNumber = document.querySelector('h2');
 number.addEventListener('input', function(){
   clear.disabled = false;
   guess.disabled = false;
-});
-guess.addEventListener('click', function(){
   reset.disabled = false;
 });
-
-function getMin(){
-return Number(document.getElementById("userMin").value);
-}
-
-function getMax(){
-return Number(document.getElementById("userMax").value);
-}
-
-function minMaxReset(){
-  document.getElementById('userMin').value = 1;
-  document.getElementById('userMax').value = 100;
-}
-
 
 //function to collect the value from input field and store it as variable 'userNumber'
 //also creates an alert window if number is outside of variable range
@@ -52,36 +36,32 @@ guess.addEventListener('click', collectUserNumber);
 
 //convert value of userNumber to numeric from string, store as new variable numberOne
 function numberOne() {
-  return parseInt(userNumber.value);
-}
-
+  return parseInt(userNumber.value);}
 
 //function to clear text field
 function clearUserNumber() {
   document.getElementById("number").value = "";
 }
 
-function minParse() {
-  return parseInt(userMin.value);
-}
-
-function maxParse() {
-  return parseInt(userMax.value);
-}
-
-//on 'guess' button click, run collectUserNumber
-guess.addEventListener('click', collectUserNumber);
-
-
 //on 'clear' button click, run clearUserNumber
 clear.addEventListener('click', clearUserNumber);
 
-//
-// // function to generate random number to variable compNumber
-//  function compNumber(){
-//    var rand = Math.floor((Math.random()*100)+1);
-//    return rand;
-//  }
+// retrieves value of userMin input field as numeric value
+function getMin(){
+  return Number(document.getElementById("userMin").value);
+}
+
+// retrieves value of userMax input field as numeric value
+function getMax(){
+  return Number(document.getElementById("userMax").value);
+}
+
+//whenever newRange button is clicked a new random number is generated with
+//the user declared variables.
+
+newRange.addEventListener('click', function(){
+  randNumber = compNumber();
+});
 
 // generate random number in specified range to variable compNumber
  function compNumber() {
@@ -119,7 +99,7 @@ function printMessageHere () {
 //prints appropriate messages on button click
 guess.addEventListener('click', printMessageHere);
 
-//function that resets input, number, and message fields
+//function that resets inputs, number, min, max, and message fields
 function resetIt (){
   document.getElementById("number").value = "";
   printNumber.innerText = "";
@@ -128,22 +108,10 @@ function resetIt (){
   clear.disabled = true;
   guess.disabled = true;
   reset.disabled = true;
-  minMaxReset();
+  document.getElementById('userMin').value = 1;
+  document.getElementById('userMax').value = 100;
   randNumber = compNumber();
 }
 
 //runs resetIt function on reset button click
 reset.addEventListener('click', resetIt);
-
-number.addEventListener('input', function(){
-  clear.disabled = false;
-});
-
-guess.addEventListener('click', function(){
-  reset.disabled = false;
-});
-
-// newRange.addEventListener('click', );
-newRange.addEventListener('click', function(){
-  randNumber = compNumber();
-});

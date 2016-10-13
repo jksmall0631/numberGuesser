@@ -33,7 +33,7 @@ section {
 input {
   display: block;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 30px;
   font-family: "Open Sans";
   font-size: 25px;
   font-weight: 300;
@@ -42,7 +42,7 @@ input {
 }
 
 button {
-  margin: 35px 8px 5px;
+  margin: 20px 8px 5px;
   background-color:#D0D2D3;
   border: none;
   color: #FFFFFF;
@@ -66,7 +66,8 @@ button:disabled {
 }
 
 #lastGuess {
-  margin-top: 35px;
+  margin-top: 20px;
+  height:215px
 }
 
 #lastGuess p {
@@ -84,8 +85,23 @@ button:disabled {
   margin-bottom: 5px;
 }
 
+.MMinput {
+    display: inline-block;
+    margin: auto;
+    margin-top: 10px;
+    font-family: "Open Sans";
+    font-size: 25px;
+    font-weight: 300;
+    width: 180px;
+    outline: none;
+}
+#newRange {
+  margin-top: 5px;
+  width: 370px;
+  font-size: 20px;
+}
 #reset {
-  margin-top: 50px;
+  margin-top: 0;
   width: 370px;
   font-size: 20px;
 }
@@ -117,7 +133,7 @@ button:disabled {
   }
 
   #lastGuess {
-    margin-top: 25px;
+    margin: 25px 0 30px;
   }
 
   #lastGuess p {
@@ -129,9 +145,20 @@ button:disabled {
     margin-top: -5px;
   }
 
+  .MMinput {
+    width: 300px;
+    height: 40px;
+    border: 2px solid #D0D2D3;
+    font-size: 25px;
+  }
+  #newRange {
+    margin-top: 10px;
+    width: 300px;
+    font-size: 20px;
+}
   #reset{
     width: 300px;
-    margin-top: 20px;
+    margin-top: -15px;
     font-size: 20px;
   }
 
