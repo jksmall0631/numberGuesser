@@ -45,11 +45,21 @@ clear.addEventListener('click', clearUserNumber);
 
 // retrieves value of userMin input field as numeric value
 function getMin(){
+  if ((document.getElementById("userMin").value)===""){
+    return 1;
+  }
+  else {
   return Number(document.getElementById("userMin").value);
+}
 }
 // retrieves value of userMax input field as numeric value
 function getMax(){
-  return Number(document.getElementById("userMax").value);
+  if ((document.getElementById("userMax").value)===""){
+    return 100;
+  }
+  else {
+    return Number(document.getElementById("userMax").value);
+  }
 }
 
 //whenever newRange button is clicked a new random number is generated with
