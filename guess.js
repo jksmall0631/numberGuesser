@@ -105,6 +105,7 @@ newRange.addEventListener('click', function(){
     document.getElementById('userMax').value = a();
     document.getElementById('userMin').value = m();
     randNumber = compNumber();
+    document.getElementById('number').placeholder = "Enter a number " + getMin() + " - " + getMax();
     return("Winner winner chicken dinner!");
    }
    else{
