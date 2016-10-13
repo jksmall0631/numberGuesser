@@ -16,8 +16,8 @@
       <h1 id="title2">Guesser</h1>
     </header>
 
-    <section id="guessField">
-      <input id="number" type="number, text" min="1" max="100" placeholder="Enter your Guess"></input>
+    <section>
+      <input id="number" type="number,text" placeholder="Enter your Guess"></input>
       <button id="guess" disabled>Guess</button>
       <button id="clear" disabled>Clear</button>
     </section>
@@ -28,6 +28,17 @@
       <p id="higherLower"></p>
       <button id="reset" disabled>Reset</button>
     </section>
+
+    <section id="changeMM">
+      <input id="userMin" type="number" placeholder="New Min" value="1">
+      </input>
+      <input id="userMax" type="number" placeholder="New Max" value="100">
+      </input>
+      <button id= "newRange">Change your range</button>
+    </section>
+
+
+
 
     <script type="text/javascript" src="guess.js"></script>
 
