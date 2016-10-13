@@ -66,6 +66,9 @@ function getMax(){
 //the user declared variables.
 newRange.addEventListener('click', function(){
   randNumber = compNumber();
+  //new
+  document.getElementById('number').placeholder = "Enter a number " + getMin() + " - " + getMax();
+  //new
 });
 
 // generate random number in specified range to variable compNumber
@@ -131,9 +134,10 @@ function resetIt (){
   clear.disabled = true;
   guess.disabled = true;
   reset.disabled = true;
-  document.getElementById('userMin').value = 1;
-  document.getElementById('userMax').value = 100;
+  document.getElementById('userMin').value = "";
+  document.getElementById('userMax').value = "";
   randNumber = compNumber();
+  document.getElementById('number').placeholder = "Enter a number 1 - 100";
 }
 
 //runs resetIt function on reset button click
