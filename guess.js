@@ -64,7 +64,20 @@ clear.addEventListener('click', clearUserNumber);
    return Math.floor(Math.random() * (max - min)) + min;
  }
 
- var randNumber = compNumber();
+ //new stuff !!!!!!!!!!!!!
+
+function m(){
+  newMin = Number(document.getElementById("userMin").value)-10;
+  min = newMin;
+  return min;
+}
+function a(){
+  newMax = Number(document.getElementById("userMax").value)+10;
+  max = newMax;
+  return max;
+}
+
+var randNumber = compNumber();
 //compare userGuess to randNumber;
  var compare = function(){
     if (numberOne() > randNumber){
@@ -74,12 +87,18 @@ clear.addEventListener('click', clearUserNumber);
      return("That is too low");
    }
    else if (numberOne() === randNumber){
-     return("Winner winner chicken dinner!");
+    document.getElementById('userMax').value = a();
+    document.getElementById('userMin').value = m();
+    randNumber = compNumber();
+    return("Winner winner chicken dinner!");
    }
    else{
      return("Make sure your input is a number");
    }
  };
+
+ //end new stuff !!!!!!!!!!!!
+
 //identify line to print messages to
 var printIntro  = document.getElementById('intro');
 var printMessage = document.getElementById('higherLower');
